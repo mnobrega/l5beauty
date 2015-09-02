@@ -29,7 +29,7 @@ $router->group([
     'middleware' => 'auth',
 ],function(){
     resource('admin/post','PostController');
-    resource('admin/tag','TagController');
+    resource('admin/tag','TagController',['except'=>'show']);
     get('admin/upload','UploadController@index');
 });
 

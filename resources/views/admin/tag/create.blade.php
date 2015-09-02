@@ -15,8 +15,10 @@
                         <h3 class="panel-title">New Tag Form</h3>
                     </div>
                     <div class="panel-body">
+
                         @include('admin.partials.errors')
-                        <form class="form-horizontal" roles="form" method="post" action="/admnin/tag">
+
+                        <form class="form-horizontal" role="form" method="post" action="/admin/tag">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserTableSeeder::class);
 
         $this->call('PostTableSeeder');
+        $this->call('TagTableSeeder');
 
         Model::reguard();
     }
@@ -29,5 +30,15 @@ class PostTableSeeder extends Seeder
         App\Post::truncate();
 
         factory(App\Post::class,20)->create();
+    }
+}
+
+class TagTableSeeder extends Seeder
+{
+    public function run()
+    {
+        App\Tag::truncate();
+
+        factory(App\Tag::class,20)->create();
     }
 }

@@ -53,21 +53,19 @@ class TagController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Requests\TagCreateRequest $request)
     {
-        //
+        $tag = new Tag();
+        foreach (array_keys($this->fields) as $field)
+        {
+            $tag->$field = $request->get($field);
+        }
+        $tag->save();
+
+        return redirect ('admin/tag')
+            ->withSuccess("The tag ".$tag->tag." was created.");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -77,7 +75,20 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = ['id'=>$id];
+        try
+        {
+            $tag = Tag::findOrFail($id);
+            foreach (array_keys($this->fields) as $field)
+            {
+                $data[$field] = old($field,$tag->$field);
+            }
+            return view('admin.tag.edit',$data);
+        }
+        catch (\Exception $e)
+        {
+            App::abort(404);
+        }
     }
 
     /**
@@ -89,7 +100,17 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+
+        foreach (array_keys(array_except($this->fields,['tag'])) as $field)
+        {
+            $tag->$field = $request->get($field);
+        }
+
+        $tag->save();
+
+        return redirect("/admin/tag/$id/edit")
+            ->withSuccess("Changes saved.");
     }
 
     /**
@@ -100,6 +121,10 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+        $tag->delete();
+
+        return redirect('/admin/tag')
+            ->withSuccess("The '$tag->tag' tag has been deleted.");
     }
 }

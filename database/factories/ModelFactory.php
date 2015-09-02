@@ -27,3 +27,11 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'published_at' => $faker->dateTimeBetween("-1 month","+3 days")
     ];
 });
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'tag' => $faker->sentence(mt_rand(3,5)),
+        'title' => $faker->sentence(mt_rand(4,10)),
+        'subtitle' => join("\n\n",$faker->paragraphs(mt_rand(3,6)))
+    ];
+});
