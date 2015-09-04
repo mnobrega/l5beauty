@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "5.1.*",
+        "dflydev/apache-mime-types": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -21,7 +22,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+          "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [
@@ -34,13 +38,7 @@
             "php artisan optimize",
             "chmod 777 bootstrap/cache",
             "chmod 777 storage/logs",
-            "npm install",
-            "npm install gulp",
-            "npm install gulp-rename",
-            "php artisan ide-helper:generate",
-            "bower update",
-            "gulp copyfiles",
-            "gulp"
+            "php artisan ide-helper:generate"
         ],
         "pre-update-cmd": [
             "php artisan clear-compiled"
@@ -49,10 +47,7 @@
             "php artisan optimize",
             "chmod 777 bootstrap/cache",
             "chmod 777 storage/logs",
-            "php artisan ide-helper:generate",
-	        "bower update",
-            "gulp copyfiles",
-            "gulp"
+            "php artisan ide-helper:generate"
         ],
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
