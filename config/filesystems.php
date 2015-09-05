@@ -80,6 +80,12 @@ return [
             'url_type'  => 'publicURL',
         ],
 
+        'dropbox' => [
+            'driver' => 'dropbox',
+            'accessToken' => env('DBOX_ACCESS_TOKEN'),
+            'clientIdentifier' => env('DBOX_CLIENT_IDENTIFIER'),
+        ],
+
     ],
 
 ];

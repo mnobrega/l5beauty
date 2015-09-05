@@ -15,11 +15,20 @@
 //    ],
 //];
 
+//return [
+//    'title' => 'My Blog',
+//    'posts_per_page' => 5,
+//    'uploads' => [
+//        'storage' => 's3',
+//        'webpath' => 'https://s3-eu-west-1.amazonaws.com/bktl5beauty/',
+//    ],
+//];
+
 return [
     'title' => 'My Blog',
     'posts_per_page' => 5,
     'uploads' => [
-        'storage' => 's3',
-        'webpath' => 'https://s3-eu-west-1.amazonaws.com/bktl5beauty/',
+        'storage' => 'dropbox',
+        'webpath' => 'https://api.dropboxapi.com/1/media/auto/',
     ],
 ];
