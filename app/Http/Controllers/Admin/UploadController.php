@@ -32,19 +32,29 @@ class UploadController extends Controller
         $new_folder = $request->get('new_folder');
         $folder = $request->get('folder').'/'.$new_folder;
 
-        $result = $this->manager->createDirectory($folder);
-
-        if ($result===true)
+        try
         {
+            $result = $this->manager->createDirectory($folder);
+
+            if ($result===true)
+            {
+                return redirect()
+                    ->back()
+                    ->withSuccess("Folder '$new_folder' created.");
+            }
+            else
+            {
+                throw new \ErrorException($result);
+            }
+        }
+        catch (\ErrorException $e)
+        {
+            $error = $e->getMessage() ? : "An error ocurred creating directory.";
             return redirect()
                 ->back()
-                ->withSuccess("Folder '$new_folder' created.");
+                ->withErrors([$error]);
         }
 
-        $error = $result ? : "An error ocurred creating directory.";
-        return redirect()
-            ->back()
-            ->withErrors([$error]);
     }
 
     public function deleteFile(Request $request)
@@ -73,7 +83,7 @@ class UploadController extends Controller
 
         $result = $this->manager->deleteDirectory($folder);
 
-        if ($result === false)
+        if ($result === true)
         {
             return redirect()
                 ->back()

@@ -25,7 +25,7 @@ class UploadNewFolderRequest extends Request
     {
         return [
             'folder' => 'required',
-            'new_folder' => 'required,'
+            'new_folder' => 'required',
         ];
     }
 }

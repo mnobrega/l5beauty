@@ -26,7 +26,7 @@ class TagUpdateRequest extends Request
         return [
             'title' => 'required',
             'subtitle' => 'required',
-            'layout' => 'required'
+            'layout' => 'required',
         ];
     }
 }

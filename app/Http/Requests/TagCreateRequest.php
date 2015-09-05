@@ -27,7 +27,7 @@ class TagCreateRequest extends Request
             'tag' => 'required|unique:tags,tag',
             'title' => 'required',
             'subtitle' => 'required',
-            'layout' => 'required'
+            'layout' => 'required',
         ];
     }
 }
