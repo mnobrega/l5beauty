@@ -41,7 +41,7 @@ class PostController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(PostCreateRequest $request)
     {
         $post = Post::create($request->postFillData());
         $post->syncTags($request->get('tags',[]));
@@ -81,7 +81,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
         $post = Post::findOrFail($id);
         $post->fill($request->postFillData());

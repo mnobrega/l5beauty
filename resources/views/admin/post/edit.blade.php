@@ -36,15 +36,15 @@
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <div class="col-md-10 col-md-offset-2">
-                                        <button type="submit" class="btn btn-primary btn-lg" name="action" value="continue">
+                                        <button type="submit" class="btn btn-primary btn-md" name="action" value="continue">
                                             <i class="fa fa-floppy-o"></i>
                                             Save - Continue
                                         </button>
-                                        <button type="submit" class="btn btn-success btn-lg" name="action" value="finished">
+                                        <button type="submit" class="btn btn-success btn-md" name="action" value="finished">
                                             <i class="fa fa-floppy-o"></i>
                                             Save - Finished
                                         </button>
-                                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modal-delete">
+                                        <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#modal-delete">
                                             <i class="fa fa-times-circle"></i>
                                             Delete
                                         </button>
@@ -81,7 +81,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">
                             Close
                         </button>
-                        <button type="button" class="btn btn-danger">
+                        <button type="submit" class="btn btn-danger">
                             <i class="fa fa-times-circle"></i> Yes
                         </button>
                     </form>
@@ -98,11 +98,11 @@
     <script src="/assets/selectize/selectize.min.js"></script>
     <script>
         $(function() {
-            $("#pusblish_date").pickadate({
+            $("#publish_date").pickadate({
                 format : "mmm-d-yyyy"
             });
-            $("#publsish_time").pickatime({
-                format : "n:i A"
+            $("#publish_time").pickatime({
+                format : "h:i A"
             });
             $("#tags").selectize({
                 create : true

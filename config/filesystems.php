@@ -82,7 +82,7 @@ return [
 
         'dropbox' => [
             'driver' => 'dropbox',
-            'accessToken' => env('DBOX_ACCESS_TOKEN'),
+            'accessToken' => env('DBOX_ACCESS_TOKEN_FULL'),
             'clientIdentifier' => env('DBOX_CLIENT_IDENTIFIER'),
         ],
 

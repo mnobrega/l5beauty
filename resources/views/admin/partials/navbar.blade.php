@@ -8,7 +8,7 @@
             <a href="/admin/tag">Tags</a>
         </li>
         <li @if (Request::is('admin/upload*')) class="active" @endif>
-            <a href="/admin/upload">Dropbox</a>
+            <a href="/admin/upload">File Storage</a>
         </li>
     @endif
 </ul>

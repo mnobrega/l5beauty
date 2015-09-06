@@ -34,7 +34,7 @@
                                 <div class="col-md-10 col-md-offset-2">
                                     <button type="submit" class="btn btn-primary btn-lg">
                                         <i class="fa fa-disk-o"></i>
-                                        Save New POst
+                                        Save New Post
                                     </button>
                                 </div>
                             </div>
@@ -53,15 +53,15 @@
     <script src="/assets/selectize/selectize.min.js"></script>
     <script>
         $(function() {
-            $("#pusblish_date").pickadate({
+            $("#publish_date").pickadate({
                 format : "mmm-d-yyyy"
             });
-            $("#publsish_time").pickatime({
-               format : "n:i A"
+            $("#publish_time").pickatime({
+               format : "h:i A"
             });
             $("#tags").selectize({
                 create : true
-            })
+            });
         });
     </script>
 @stop
