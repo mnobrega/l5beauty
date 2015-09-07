@@ -1,27 +1,37 @@
-<html>
-    <head>
-        <title>{{ config('blog.title') }}</title>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    </head>
+@extends('blog.layouts.master')
 
-    <body>
-        <div class="container">
-            <h1> {{ config('blog.title') }} </h1>
-            <h5> Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }} </h5>
-            <hr>
-            <ul>
-                @foreach ($posts as $post)
-                    <li>
-                        <a href="/blog/{{ $post->slug }}"> {{ $post->title }}</a>
-                        <em>{{ $post->published_at->format('M jS Y g:ia') }} </em>
-                        <p>
-                            {{ str_limit($post->content) }}
-                        </p>
-                    </li>
-                @endforeach
-            </ul>
-            <hr>
-            {!! $posts->render() !!}
+@section('page-header')
+    <header class="intro-header" style="background-image: url('{{page_image($page_image)}}}')"></header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>{{$title}}</h1>
+                    <hr class="small">
+                    <h2 class="subheading">{{$subtitle}}</h2>
+                </div>
+            </div>
         </div>
-    </body>
-</html>
+    </div>
+@stop
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                {{-- The Posts --}}
+                @foreach ($posts as $post)
+                    <div class="post-preview">
+                        <a href="{{$post->url($tag)}}">
+                            <h2 class="post-subtitle">{{$post->subtitle}}</h2>
+                        </a>
+                    </div>
+                @endforeach
+
+                {{-- The Pager --}}
+
+            </div>
+        </div>
+    </div>
+@stop
