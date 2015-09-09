@@ -9,7 +9,7 @@
         <title>{{$title or config('blog.title')}}</title>
 
         {{-- Styles --}}
-        <link href="/assents/css/blog.css" rel="stylesheet">
+        <link href="/css/blog.css" rel="stylesheet">
         @yield('styles')
     </head>
     <body>
@@ -21,7 +21,7 @@
         @include ('blog.partials.page-footer')
 
         {{-- Scripts --}}
-        <script src="/assets/js/blog.js"></script>
+        <script src="/js/blog.js"></script>
         @yield('scripts')
     </body>
 </html>

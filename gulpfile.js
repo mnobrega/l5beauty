@@ -9,31 +9,31 @@ var elixir = require('laravel-elixir');
  */
 
 gulp.task("copyfiles", function() {
-    gulp.src("vendor/bower_dl/jquery/dist/jquery.js").pipe(gulp.dest("resources/assets/js"));
-    gulp.src("vendor/bower_dl/bootstrap/less/**").pipe(gulp.dest("resources/assets/less/bootstrap"));
-    gulp.src("vendor/bower_dl/bootstrap/dist/js/bootstrap.js").pipe(gulp.dest("resources/assets/js"));
-    gulp.src("vendor/bower_dl/bootstrap/dist/fonts/**").pipe(gulp.dest("public/assets/fonts"));
-    gulp.src("vendor/bower_dl/fontawesome/less/**").pipe(gulp.dest("resources/assets/less/fontawesome"));
-    gulp.src("vendor/bower_dl/fontawesome/fonts/**").pipe(gulp.dest("public/assets/fonts"));
+    gulp.src("vendor/bower_dl/jquery/dist/jquery.js").pipe(gulp.dest("resources/assets/js/vendor/"));
+    gulp.src("vendor/bower_dl/bootstrap/less/**").pipe(gulp.dest("resources/assets/less/vendor/bootstrap/"));
+    gulp.src("vendor/bower_dl/bootstrap/dist/js/bootstrap.js").pipe(gulp.dest("resources/assets/js/vendor/"));
+    gulp.src("vendor/bower_dl/bootstrap/dist/fonts/**").pipe(gulp.dest("public/fonts/"));
+    gulp.src("vendor/bower_dl/fontawesome/less/**").pipe(gulp.dest("resources/assets/less/vendor/fontawesome/"));
+    gulp.src("vendor/bower_dl/fontawesome/fonts/**").pipe(gulp.dest("public/fonts/"));
 
     //copy datatables
     var dtDir = 'vendor/bower_dl/datatables-plugins/integration/';
-    gulp.src("vendor/bower_dl/datatables/media/js/jquery.dataTables.js").pipe(gulp.dest("resources/assets/js/"));
-    gulp.src(dtDir+'bootstrap/3/dataTables.bootstrap.css').pipe(rename('dataTables.bootstrap.less')).pipe(gulp.dest("resources/assets/less/others/"));
-    gulp.src(dtDir+'bootstrap/3/dataTables.bootstrap.js').pipe(gulp.dest("resources/assets/js/"));
+    gulp.src("vendor/bower_dl/datatables/media/js/jquery.dataTables.js").pipe(gulp.dest("resources/assets/js/vendor/"));
+    gulp.src(dtDir+'bootstrap/3/dataTables.bootstrap.css').pipe(rename('dataTables.bootstrap.less')).pipe(gulp.dest("resources/assets/less/vendor/others/"));
+    gulp.src(dtDir+'bootstrap/3/dataTables.bootstrap.js').pipe(gulp.dest("resources/assets/js/vendor/"));
 
     //copy selectize
-    gulp.src("vendor/bower_dl/selectize/dist/css/**").pipe(gulp.dest("public/assets/selectize/css"));
-    gulp.src("vendor/bower_dl/selectize/dist/js/standalone/selectize.min.js").pipe(gulp.dest("public/assets/selectize/"));
+    gulp.src("vendor/bower_dl/selectize/dist/css/**").pipe(gulp.dest("public/css/selectize/"));
+    gulp.src("vendor/bower_dl/selectize/dist/js/standalone/selectize.min.js").pipe(gulp.dest("public/js/selectize/"));
 
     //copy pickadate
-    gulp.src("vendor/bower_dl/pickadate/lib/compressed/themes/**").pipe(gulp.dest("public/assets/pickadate/themes/"));
-    gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.js").pipe(gulp.dest("public/assets/pickadate/"));
-    gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.date.js").pipe(gulp.dest("public/assets/pickadate/"));
-    gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.time.js").pipe(gulp.dest("public/assets/pickadate/"));
+    gulp.src("vendor/bower_dl/pickadate/lib/compressed/themes/**").pipe(gulp.dest("public/css/pickadate/themes/"));
+    gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.js").pipe(gulp.dest("public/js/pickadate/"));
+    gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.date.js").pipe(gulp.dest("public/js/pickadate/"));
+    gulp.src("vendor/bower_dl/pickadate/lib/compressed/picker.time.js").pipe(gulp.dest("public/js/pickadate/"));
 
     //copy clean-blog less files
-    gulp.src("vendor/bower_dl/clean-blog/less/**").pipe(gulp.dest("resources/assets/less/clean-blog"));
+    gulp.src("vendor/bower_dl/clean-blog/less/**").pipe(gulp.dest("resources/assets/less/vendor/clean-blog"));
 });
 
 /*
@@ -49,20 +49,19 @@ gulp.task("copyfiles", function() {
 
 elixir(function(mix) {
     mix.scripts([
-            'js/jquery.js',
-            'js/bootstrap.js',
-            'js/jquery.dataTables.js',
-            'js/dataTables.bootstrap.js'
+            'vendor/jquery.js',
+            'vendor/bootstrap.js',
+            'vendor/jquery.dataTables.js',
+            'vendor/dataTables.bootstrap.js'
     ],
-    'public/assets/js/admin.js',
-    'resources/assets');
+    'public/js/admin.js', 'resources/assets/js/');
 
     mix.scripts([
-            'js/jquery.js',
-            'js/bootstrap.js',
-            'js/blog.js'
-    ],'public/assets/js/blog.js','resources//assets');
+            'vendor/jquery.js',
+            'vendor/bootstrap.js',
+            'blog.js'
+    ],'public/js/blog.js', 'resources/assets/js/');
 
-    mix.less('admin.less','public/assets/css/admin.css');
-    mix.less('blog.less','public/assets/css/blog.css');
+    mix.less('admin.less','public/css/admin.css');
+    mix.less('blog.less','public/css/blog.css');
 });

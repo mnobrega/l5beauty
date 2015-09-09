@@ -5,5 +5,8 @@ Homestead.yaml
 .idea/*
 composer.lock
 _ide_helper.php
-/resources/assets/*
-/public/assets/*
+public/css/*
+public/js/*
+public/fonts/*
+resources/assets/js/vendor/*
+resources/assets/less/vendor/*

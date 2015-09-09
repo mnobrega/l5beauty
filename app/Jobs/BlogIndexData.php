@@ -47,7 +47,7 @@ class BlogIndexData extends Job implements SelfHandling
             'title' => config('blog.title'),
             'subtitle' => config('blog.subtitle'),
             'posts' => $posts,
-            'mpage_iamge' => config('blog.page_image'),
+            'page_image' => config('blog.page_image'),
             'meta_description' => config('blog.description'),
             'reverse_direction' => false,
             'tag' => null,
