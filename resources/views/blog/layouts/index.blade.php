@@ -31,7 +31,7 @@
                         </a>
                         <p class="post-meta">
                             Posted on {{$post->published_at->format('F j,Y')}}
-                            @if ($post->tag->count())
+                            @if ($post->tags->count())
                                 in
                                 {!! join(', ', $post->tagLinks()) !!}
                             @endif

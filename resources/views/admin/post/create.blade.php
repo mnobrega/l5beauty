@@ -1,11 +1,11 @@
 @extends('admin.layout')
 
 @section('styles')
-    <link href="/assets/pickadate/themes/default.css" rel="stylesheet">
-    <link href="/assets/pickadate/themes/default.date.css" rel="stylesheet">
-    <link href="/assets/pickadate/themes/default.time.css" rel="stylesheet">
-    <link href="/assets/selectize/css/selectize.css" rel="stylesheet">
-    <link href="/assets/selectize/css/selectize.bootstrap3.css" rel="stylesheet">
+    <link href="/css/pickadate/themes/default.css" rel="stylesheet">
+    <link href="/css/pickadate/themes/default.date.css" rel="stylesheet">
+    <link href="/css/pickadate/themes/default.time.css" rel="stylesheet">
+    <link href="/css/selectize/selectize.css" rel="stylesheet">
+    <link href="/css/selectize/selectize.bootstrap3.css" rel="stylesheet">
 @stop
 
 @section('content')
@@ -47,10 +47,10 @@
 @stop
 
 @section('scripts')
-    <script src="/assets/pickadate/picker.js"></script>
-    <script src="/assets/pickadate/picker.date.js"></script>
-    <script src="/assets/pickadate/picker.time.js"></script>
-    <script src="/assets/selectize/selectize.min.js"></script>
+    <script src="/js/pickadate/picker.js"></script>
+    <script src="/js/pickadate/picker.date.js"></script>
+    <script src="/js/pickadate/picker.time.js"></script>
+    <script src="/js/selectize/selectize.min.js"></script>
     <script>
         $(function() {
             $("#publish_date").pickadate({

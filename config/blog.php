@@ -6,29 +6,35 @@
  * Time: 1:42
  */
 
-return [
-    'title' => 'My Blog',
-    'posts_per_page' => 5,
+$configBase = [
+    'name' => 'L5 Beauty',
+    'title' => "Laravel 5.1 Beauty",
+    'subtitle' => 'A clean blog written in Laravel 5.1',
+    'description' => 'This is my meta description',
+    'author' => 'Chuck Heintzelman',
+    'page_image' => 'home-bg.jpg',
+    'posts_per_page' => 10,
+];
+
+$fileStorageDisk = [
     'uploads' => [
         'storage' => 'local',
         'webpath' => '/uploads',
     ],
 ];
 
-//return [
-//    'title' => 'My Blog',
-//    'posts_per_page' => 5,
-//    'uploads' => [
-//        'storage' => 's3',
-//        'webpath' => 'https://s3-eu-west-1.amazonaws.com/bktl5beauty/',
-//    ],
-//];
+$fileStorageS3 = [
+    'uploads' => [
+        'storage' => 's3',
+        'webpath' => 'https://s3-eu-west-1.amazonaws.com/bktl5beauty/',
+    ],
+];
 
-//return [
-//    'title' => 'My Blog',
-//    'posts_per_page' => 5,
-//    'uploads' => [
-//        'storage' => 'dropbox',
-//        'webpath' => 'https://api.dropboxapi.com/1/media/auto/',
-//    ],
-//];
+$fileStorageDropbox = [
+    'uploads' => [
+        'storage' => 'dropbox',
+        'webpath' => 'https://api.dropboxapi.com/1/media/auto/',
+    ],
+];
+
+$configbase = array_merge($configBase,$fileStorageDisk);
