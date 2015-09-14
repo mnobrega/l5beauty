@@ -14,6 +14,7 @@ $configBase = [
     'author' => 'Chuck Heintzelman',
     'page_image' => 'home-bg.jpg',
     'posts_per_page' => 10,
+    'contact_email' => 'marcio.nobrega@premium-minds.com',
 ];
 
 $fileStorageDisk = [

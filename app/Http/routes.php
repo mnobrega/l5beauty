@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 get('blog','BlogController@index');
 get('blog/{slug}','BlogController@showPost');
+$router->get('contact','ContactController@showForm');
+Route::post('contact','ContactController@sendContactInfo');
 
 
 // Admin area
