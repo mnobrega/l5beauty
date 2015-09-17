@@ -8,7 +8,7 @@
 
 $configBase = [
     'name' => 'L5 Beauty',
-    'title' => "Laravel 5.1 Beauty",
+    'title' => "MNobrega's Sandbox",
     'subtitle' => 'A clean blog written in Laravel 5.1',
     'description' => 'This is my meta description',
     'author' => 'Chuck Heintzelman',

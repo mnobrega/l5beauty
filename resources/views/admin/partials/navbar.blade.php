@@ -16,6 +16,9 @@
         <li @if (Request::is('admin/googlemaps')) class="active" @endif>
             <a href="/admin/googlemaps">GoogleMaps</a>
         </li>
+        <li @if (Request::is('admin/trello')) class="active" @endif>
+            <a href="/admin/trello">Trello</a>
+        </li>
     @endif
 </ul>
 

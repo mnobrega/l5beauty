@@ -39,6 +39,7 @@ $router->group([
     delete('admin/upload/folder','UploadController@deleteFolder');
     get('admin/jointjs','JointJSController@index');
     get('admin/googlemaps','GoogleMapsController@index');
+    get('admin/trello','TrelloController@index');
 });
 
 
@@ -46,3 +47,7 @@ $router->group([
 get('/auth/login','Auth\AuthController@getLogin');
 post('/auth/login','Auth\AuthController@postLogin');
 get('/auth/logout','Auth\AuthController@getLogout');
+
+// Trello - Logging In and Out
+get('auth/trello','Auth\AuthController@redirectToProvider');
+get('auth/trello/callback','Auth\AuthController@handleProviderCallback');

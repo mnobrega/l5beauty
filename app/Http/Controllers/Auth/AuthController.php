@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Redirect;
+use Laravel\Socialite\Facades\Socialite;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -46,8 +48,8 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'email' => 'email|max:255',
+            'password' => 'confirmed|min:6',
         ]);
     }
 
@@ -63,6 +65,43 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+        ]);
+    }
+
+
+    /**
+     * Trello Stuff
+     * @return mixed
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('trello')->redirect();
+    }
+    public function handleProviderCallback()
+    {
+        try {
+            $user = Socialite::driver('trello')->user();
+        } catch (Exception $e) {
+            return Redirect::to('auth/trello');
+        }
+
+        $authUser = $this->findOrCreateUser($user);
+
+        \Auth::login($authUser, true);
+
+        return Redirect::to('admin');
+    }
+    private function findOrCreateUser($trelloUser)
+    {
+        $userInfo = $trelloUser->user;
+
+        if ($authUser = User::where('trello_id',$userInfo['id'])->first()) {
+            return $authUser;
+        }
+
+        return User::create([
+            'name' => $userInfo['username'],
+            'trello_id' => $userInfo['id'],
         ]);
     }
 }

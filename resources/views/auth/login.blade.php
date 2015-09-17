@@ -37,6 +37,9 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">Login</button>
+                                    <a class="btn btn-md btn-default" href="/auth/trello">
+                                        <i class="fa fa-trello fa-square"></i><span>&nbsp;Login with <strong>Trello</strong></span>
+                                    </a>
                                 </div>
                             </div>
                         </form>
