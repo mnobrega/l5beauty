@@ -34,6 +34,15 @@ gulp.task("copyfiles", function() {
 
     //copy clean-blog less files
     gulp.src("vendor/bower_dl/clean-blog/less/**").pipe(gulp.dest("resources/assets/less/vendor/clean-blog"));
+
+    //jointjs files
+    gulp.src("vendor/bower_dl/backbone/backbone-min.js").pipe(gulp.dest("public/js/backbone/"));
+    gulp.src("vendor/bower_dl/lodash/lodash.min.js").pipe(gulp.dest("public/js/lodash/"));
+    gulp.src("vendor/bower_dl/jointjs/dist/joint.js").pipe(gulp.dest("public/js/jointjs"));
+    gulp.src("vendor/bower_dl/jointjs/joint.css").pipe(gulp.dest("public/css/jointjs"));
+
+    //maplace
+    gulp.src("vendor/bower_dl/maplace-js/src/maplace-0.1.3.min.js").pipe(gulp.dest("public/js/maplace-js"));
 });
 
 /*

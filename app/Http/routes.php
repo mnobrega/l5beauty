@@ -37,6 +37,8 @@ $router->group([
     delete('admin/upload/file','UploadController@deleteFile');
     post('admin/upload/folder','UploadController@createFolder');
     delete('admin/upload/folder','UploadController@deleteFolder');
+    get('admin/jointjs','JointJSController@index');
+    get('admin/googlemaps','GoogleMapsController@index');
 });
 
 

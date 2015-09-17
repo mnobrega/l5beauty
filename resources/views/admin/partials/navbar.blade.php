@@ -10,6 +10,12 @@
         <li @if (Request::is('admin/upload*')) class="active" @endif>
             <a href="/admin/upload">File Storage</a>
         </li>
+        <li @if (Request::is('admin/jointjs')) class="active" @endif>
+            <a href="/admin/jointjs">JointJS</a>
+        </li>
+        <li @if (Request::is('admin/googlemaps')) class="active" @endif>
+            <a href="/admin/googlemaps">GoogleMaps</a>
+        </li>
     @endif
 </ul>
 
