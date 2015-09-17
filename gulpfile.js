@@ -42,7 +42,7 @@ gulp.task("copyfiles", function() {
     gulp.src("vendor/bower_dl/jointjs/joint.css").pipe(gulp.dest("public/css/jointjs"));
 
     //maplace
-    gulp.src("vendor/bower_dl/maplace-js/src/maplace-0.1.3.min.js").pipe(gulp.dest("public/js/maplace-js"));
+    gulp.src("vendor/bower_dl/maplace.js/src/maplace-0.1.3.min.js").pipe(gulp.dest("public/js/maplace-js"));
 });
 
 /*
@@ -74,5 +74,4 @@ elixir(function(mix) {
     mix.less('admin.less','public/css/admin.css');
     mix.less('blog.less','public/css/blog.css');
 
-    mix.version(['public/css/admin.css','public/js/admin.js']);
 });

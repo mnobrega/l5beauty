@@ -6,7 +6,7 @@
 
             <title>{{ config('blog.title') }} Admin </title>
 
-            <link href="{{elixir('css/admin.css')}}" rel="stylesheet">
+            <link href="/css/admin.css" rel="stylesheet">
 
             @yield('styles')
     </head>
@@ -32,7 +32,7 @@
 
         @yield('content')
 
-        <script src="{{elixir('js/admin.js')}}"></script>
+        <script src="/js/admin.js"></script>
 
         @yield('scripts')
     </body>
