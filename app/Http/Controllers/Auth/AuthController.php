@@ -93,6 +93,7 @@ class AuthController extends Controller
     }
     private function findOrCreateUser($trelloUser)
     {
+        //dd($trelloUser);
         $userInfo = $trelloUser->user;
 
         if ($authUser = User::where('trello_id',$userInfo['id'])->first()) {
