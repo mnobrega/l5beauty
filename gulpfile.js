@@ -73,5 +73,4 @@ elixir(function(mix) {
 
     mix.less('admin.less','public/css/admin.css');
     mix.less('blog.less','public/css/blog.css');
-
 });
