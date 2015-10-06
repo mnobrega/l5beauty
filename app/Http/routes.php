@@ -40,6 +40,7 @@ $router->group([
     get('admin/jointjs','JointJSController@index');
     get('admin/googlemaps','GoogleMapsController@index');
     get('admin/trello','TrelloController@index');
+    get('admin/trello/board/{boardId}','TrelloController@getBoard');
 });
 
 

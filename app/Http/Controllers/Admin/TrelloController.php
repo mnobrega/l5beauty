@@ -16,15 +16,16 @@ class TrelloController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-
+        $user = \Auth::getUser();
         $client = new Client();
-        $client->authenticate($user->getAttribute('trello_token'),$user->getAttribute('trello_token_secret'),Client::AUTH_HTTP_TOKEN);
+        $client->authenticate($user->trello_id,$user->trello_token,Client::AUTH_HTTP_TOKEN);
+        $params['key'] = env('TRELLO_KEY');
+        $params['token'] = $user->trello_token;
+        $boards = $client->api('member')->boards()->all($user->trello_id,$params);
 
-        $boards = $client->api('member')->boards()->all($user->getAttribute('trello_id'));
+        $viewData = array('trelloBoards'=>$boards);
 
-        $data = array();
-        return view('admin.trello.index',$data);
+        return view('admin.trello.index',$viewData);
     }
 
     /**
@@ -91,5 +92,26 @@ class TrelloController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getBoard($boardId)
+    {
+        $user = \Auth::getUser();
+        $client = new Client();
+        $client->authenticate($user->trello_id,$user->trello_token,Client::AUTH_HTTP_TOKEN);
+        $params['key'] = env('TRELLO_KEY');
+        $params['token'] = $user->trello_token;
+        $cards=$client->api('boards')->cards()->all($boardId,$params);
+        $lists=$client->api('boards')->lists()->all($boardId,$params);
+
+        $viewData['boardCards'] = $cards;
+        $listsNames = array();
+        foreach ($lists as $list)
+        {
+            $listNames[$list['id']]=$list['name'];
+        }
+        $viewData['boardLists'] = $listNames;
+
+        return view('admin.trello.board',$viewData);
     }
 }

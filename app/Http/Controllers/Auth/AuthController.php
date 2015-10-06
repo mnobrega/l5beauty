@@ -104,7 +104,6 @@ class AuthController extends Controller
             'name' => $userInfo['username'],
             'trello_id' => $userInfo['id'],
             'trello_token' => $trelloUser->token,
-            'trello_token_secret' => $trelloUser->tokenSecret,
         ]);
     }
 }

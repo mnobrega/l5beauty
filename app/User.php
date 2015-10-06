@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password','trello_id','trello_token','trello_token_secret'];
+    protected $fillable = ['name', 'email', 'password','trello_id','trello_token'];
 
     /**
      * The attributes excluded from the model's JSON form.
