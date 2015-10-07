@@ -105,7 +105,7 @@ class TrelloController extends Controller
         $lists=$client->api('boards')->lists()->all($boardId,$params);
 
         $viewData['boardCards'] = $cards;
-        $listsNames = array();
+        $listNames = array();
         foreach ($lists as $list)
         {
             $listNames[$list['id']]=$list['name'];

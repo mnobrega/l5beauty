@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('trello_id');
             $table->string('trello_token');
+            $table->string('email_username');
+            $table->string('email_password');
             $table->rememberToken();
             $table->timestamps();
         });

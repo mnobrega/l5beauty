@@ -26,7 +26,7 @@
                         @foreach ($trelloBoards as $trelloBoard)
                             <tr>
                                 <td data-order="{{$trelloBoard['name']}}">
-                                    <a href="{{$trelloBoard['url']}}" target="_blank">
+                                    <a href="/admin/trello/board/{{$trelloBoard['id']}}">
                                         {{$trelloBoard['name']}}
                                     </a>
                                 </td>
@@ -34,7 +34,7 @@
                                 <td>{{$trelloBoard['idOrganization']}}</td>
                                 <td>{{count($trelloBoard['memberships'])}}</td>
                                 <td>
-                                    <a href="/admin/trello/board/{{$trelloBoard['id']}}">
+                                    <a href="{{$trelloBoard['url']}}" target="_blank">
                                         <i class="fa fa-eye"></i> View
                                     </a>
                                 </td>

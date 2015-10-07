@@ -7,34 +7,30 @@
     <div class="container-fluid">
         <div class="row page-title-row">
             <div class="col-md-6">
-                <h3>Board Cards <small>&raquo; Listing</small></h3>
+                <h3>Mails <small>&raquo; Listing</small></h3>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <table id="trello-cards-table" class="table table-striped table-bordered">
+                <table id="mails-table" class="table table-striped table-bordered">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Due Date</th>
-                        <th>List</th>
+                        <th>Received</th>
+                        <th>From</th>
+                        <th>Subject</th>
                         <th data-sortable="false">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($boardCards as $boardCard)
+                        @foreach ($mails as $mail)
                             <tr>
-                                <td>{{$boardCard['idShort']}}</td>
-                                <td data-order="{{$boardCard['name']}}">
-                                    <a href="/admin/trello/board/card/{{$boardCard['id']}}">
-                                        {{$boardCard['name']}}
-                                    </a>
-                                </td>
-                                <td>{{$boardCard['due']}}</td>
-                                <td>{{$boardLists[$boardCard['idList']]}}</td>
+                                <td>{{$mail->id}}</td>
+                                <td data-order="{{$mail->date}}">{{$mail->date}}</td>
+                                <td>{{$mail->fromName}}</td>
+                                <td>{{$mail->subject}}</td>
                                 <td>
-                                    <a href="{{$boardCard['url']}}" target="_blank">
+                                    <a href="#" target="_blank">
                                         <i class="fa fa-eye"></i> View
                                     </a>
                                 </td>
@@ -50,7 +46,7 @@
 @section('scripts')
     <script>
         $(function() {
-            $("#trello-cards-table").DataTable({
+            $("#mails-table").DataTable({
                 order: [[0,"desc"]]
             });
         });

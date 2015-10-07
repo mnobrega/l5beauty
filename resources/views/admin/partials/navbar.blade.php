@@ -19,6 +19,9 @@
         <li @if (Request::is('admin/trello')) class="active" @endif>
             <a href="/admin/trello">Trello</a>
         </li>
+        <li @if (Request::is('admin/mail')) class="active" @endif>
+            <a href="/admin/mail">E-mail</a>
+        </li>
     @endif
 </ul>
 

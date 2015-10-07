@@ -41,6 +41,7 @@ $router->group([
     get('admin/googlemaps','GoogleMapsController@index');
     get('admin/trello','TrelloController@index');
     get('admin/trello/board/{boardId}','TrelloController@getBoard');
+    get('admin/mail','MailController@index');
 });
 
 
