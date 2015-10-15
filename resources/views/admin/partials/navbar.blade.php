@@ -22,6 +22,9 @@
         <li @if (Request::is('admin/mail')) class="active" @endif>
             <a href="/admin/mail">E-mail</a>
         </li>
+        <li @if (Request::is('admin/rt')) class="active" @endif>
+            <a href="/admin/rt">RT</a>
+        </li>
     @endif
 </ul>
 

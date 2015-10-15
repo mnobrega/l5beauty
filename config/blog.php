@@ -38,4 +38,4 @@ $fileStorageDropbox = [
     ],
 ];
 
-return array_merge($configBase,$fileStorageDropbox);
+return array_merge($configBase,$fileStorageDisk);
